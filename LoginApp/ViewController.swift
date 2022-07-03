@@ -7,11 +7,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class MainViewController: UIViewController {
+    
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var LoginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            guard let settingsVC = segue.destination as? SettingsViewController else { return }
+            settingsVC.minimumValue = minimumValueLabel.text
+            settingsVC.maximumValue = maximumValueLabel.text
     }
 
 
